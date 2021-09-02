@@ -1,1 +1,30 @@
+.RMApp {
+    min-width: 100vw;
+    min-height: 100vh;
 
+    --footer-height: 100px; /* customer variable used to set footer height */
+}
+.RMApp::before { /* pseudo-element for the background image in order to set the opacity only for the image*/
+    content: ''; /* to render the pseudo-element*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+
+    background-image: url("./img/rm-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+}
+
+.RMBody {
+    width: 100vw;
+    height: calc(100vh - var(--footer-height));
+}
+
+.RMFooter {
+    width: 100vw;
+    height: var(--footer-height);
+}
