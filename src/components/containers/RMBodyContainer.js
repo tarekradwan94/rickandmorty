@@ -5,7 +5,7 @@ import RMCharactersList from '../RMCharactersList';
 function RMBodyContainer () {
     return (
         <div className="RMBodyContainer">
-            <img className="RMLogo" src={logo} alt="Rick and morty logo" />
+            <img className="RMLogo" src={logo} alt="Rick and Morty logo" />
             <RMCharactersList></RMCharactersList>
         </div>
     );
