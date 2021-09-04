@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import './RMCharactersList.css';
 import utils from "../utils";
+import RMCharacterCard from "./RMCharacterCard";
 
 function RMCharactersList () {
 
@@ -23,11 +25,13 @@ function RMCharactersList () {
 
     return (
         <div className="RMCharactersList">
+            <div>
             {
                 chatacters.map((character) => {
                     return (<div key={character.id}>{character.name}</div>);
                 })
             }
+            </div>
         </div>
     );
 }
