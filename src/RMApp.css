@@ -3,6 +3,7 @@
     height: 100vh;
 
     --footer-height: 60px; /* customer variable used to set footer height */
+    --general-color: rgb(55, 55, 55); /* custom variable used to keep same color across the whole site */
 }
 .RMApp::before { /* pseudo-element for the background image in order to set the opacity only for the image*/
     content: ''; /* to render the pseudo-element*/
@@ -15,7 +16,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.1;
 }
 
 .RMBody {

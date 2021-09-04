@@ -6,7 +6,7 @@
     font-weight: bold;
     text-align: right;
 
-    background-color: rgb(55, 55, 55);
+    background-color: var(--general-color);
 }
 
 .RMFooterDisclaimerContainer {
