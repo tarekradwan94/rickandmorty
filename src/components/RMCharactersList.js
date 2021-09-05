@@ -9,9 +9,8 @@ function RMCharactersList () {
 
     useEffect( () => {
         // load characters
-        let charactersData;
         (async () => {
-            charactersData = await utils.getPagedRMCharacters();
+            let charactersData = await utils.getPagedRMCharacters();
 
             if(charactersData.data) {
                 setCharacters(charactersData.data);
