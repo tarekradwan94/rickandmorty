@@ -5,6 +5,7 @@
 
 .RMCharacterCard .row {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .RMAvatar {
@@ -32,12 +33,24 @@
     font-size: 12pt;
 }
 
-.RMInfoBox div {
+.RMInfoBox div, .RMInfoBox span {
     color: var(--general-color);
+    
 }
 
 .RMInfoBox h2 {
     font-family: Schwifty;
+}
+
+.RMAvatarBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    font-weight: 600;
+    font-size: 12pt;
+    text-align: center;
 }
 
 .spacer {
@@ -53,4 +66,8 @@
     margin-top: 15px;
 
     background-color: var(--general-color);
+}
+
+.noBold {
+    font-weight: normal;
 }

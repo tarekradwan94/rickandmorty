@@ -1,11 +1,59 @@
+import { useState } from 'react';
 import './RMCharacterCard.css';
+import utils from '../utils';
 
 function RMCharacterCard(props) {
+    
+    let [areDetailsShown, showDetails] = useState(false);
+    let [details, setDetails] = useState({});
+
+    async function toggleDetails() {
+        showDetails(!areDetailsShown);
+
+        loadDetails();
+    };
+
+    async function loadDetails() {
+        if(Object.keys(details).length === 0) {
+            let characterExtraDetails = await utils.getCharacterExtraDetails(props.character);
+
+            //there might be multiple errors and multiple responses
+            if(Array.isArray(characterExtraDetails.error)) {
+                for(let error of characterExtraDetails.error) {
+                    console.log(error?.code, error?.message);
+                    alert(error?.userMessage);
+                }
+            }
+
+            if(Array.isArray(characterExtraDetails.data)) {
+                //response 0 is the origin details
+                let originDetails = characterExtraDetails.data.shift();
+
+                //response 1 is the location details
+                let locationDetails = characterExtraDetails.data.shift();
+
+                //other responses are for episodes
+                let episodesDetails = characterExtraDetails.data;
+
+                setDetails({
+                    originDetails,
+                    locationDetails,
+                    episodesDetails
+                });
+            }
+        }
+    }
+
     return (
-        <div className="RMCharacterCard">
+        <div className="RMCharacterCard" onClick={toggleDetails}>
             <div className="row">
-                <div className="col-sm-2 RMInfoBox">
+                <div className="col-sm-2 RMAvatarBox">
                     <img src={props.character.image} className="RMAvatar" alt={`Avatar of ${props.character.name}`} />
+                    <br/>
+                    {
+                        areDetailsShown ? "Hit to close" :
+                        "Hit me"
+                    }
                 </div>
                 <div className="col-sm-3 RMInfoBox">
                     <h2>{props.character.name}</h2>
@@ -32,6 +80,53 @@ function RMCharacterCard(props) {
                     </div>
                 </div>
             </div>
+            {
+                !areDetailsShown ? "" : 
+                <div className="RMDetails">
+                    {
+                        !details.originDetails ? "" :
+                        <div className="row">
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Origin: <span className="noBold">{details.originDetails.name}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Type: <span className="noBold">{details.originDetails.type}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Dimension: <span className="noBold">{details.originDetails.dimension}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Number of residents: <span className="noBold">{details.originDetails.residents.length}</span></span>
+                            </div>
+                        </div>
+                    }
+                    {
+                        !details.locationDetails ? "" :
+                        <div className="row">
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Location: <span className="noBold">{details.locationDetails.name}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Type: <span className="noBold">{details.locationDetails.type}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Dimension: <span className="noBold">{details.locationDetails.dimension}</span></span>
+                            </div>
+                            <div className="col-sm-3 RMInfoBox">
+                                <span>Number of residents: <span className="noBold">{details.locationDetails.residents.length}</span></span>
+                            </div>
+                        </div>
+                    }
+                    {
+                        !Array.isArray(details.episodesDetails) ? "" :
+                        <div className="row">
+                            <div className="col-sm-12 RMInfoBox">
+                                <span>Episodes list: <span className="noBold">{(details.episodesDetails.map((episode) => episode ? `'${episode?.name}'` : "")).join(",")}</span></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
             {
                 props.hideSeparator ? "" : <div className="separator"></div>
             }
