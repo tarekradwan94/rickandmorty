@@ -29,7 +29,7 @@ function RMCharactersList () {
             {
                 chatacters.map((character, index, chatacters) => {
                     return index === chatacters.length - 1 ?
-                        (<RMCharacterCard key={character.id} character={character} hideSeparator="true"></RMCharacterCard>) :
+                        (<RMCharacterCard key={character.id} character={character} hideSeparator={true}></RMCharacterCard>) :
                         (<RMCharacterCard key={character.id} character={character}></RMCharacterCard>) ;
                 })
             }
