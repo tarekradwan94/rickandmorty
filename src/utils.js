@@ -22,17 +22,17 @@ let utils = {
                     charactersOutput.data = JSONResponse.results;
                 } else {
                     // handle content-type error
-                    charactersOutput.error = constants.errors.formatError;
+                    charactersOutput.error = Object.assign({}, constants.errors.formatError);
                     charactersOutput.error.message = constants.errors.formatError.message(contentType);
                 }
             } else {
                 // handle server error response
-                charactersOutput.error = constants.errors.responseError;
+                charactersOutput.error = Object.assign({}, constants.errors.responseError);
                 charactersOutput.error.message = constants.errors.responseError.message(rawResponse.status, rawResponse.statusText);
             }
         } catch (error) {
             // handle unexpected error (usually network issues)
-            charactersOutput.error = constants.errors.networkError;
+            charactersOutput.error = Object.assign({}, constants.errors.networkError);
             charactersOutput.error.message = constants.errors.networkError.message(error.toString());
         }
 
