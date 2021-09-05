@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './RMCharacterCard.css';
 import utils from '../utils';
+import { toast } from 'react-toastify';
 
 function RMCharacterCard(props) {
     
@@ -21,7 +22,7 @@ function RMCharacterCard(props) {
             if(Array.isArray(characterExtraDetails.error)) {
                 for(let error of characterExtraDetails.error) {
                     console.log(error?.code, error?.message);
-                    alert(error?.userMessage);
+                    toast.error(error?.userMessage);
                 }
             }
 

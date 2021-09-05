@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import './RMCharactersList.css';
 import utils from "../utils";
 import RMCharacterCard from "./RMCharacterCard";
+import { toast } from 'react-toastify';
 
 function RMCharactersList () {
 
@@ -17,7 +18,7 @@ function RMCharactersList () {
             } else {
                 // if no data, then there is an error
                 console.log(charactersData.error?.code, charactersData.error?.message);
-                alert(charactersData.error?.userMessage);
+                toast.error(charactersData.error?.userMessage);
             }
         })();
     }, []);
