@@ -32,6 +32,9 @@ function RMCharacterCard(props) {
                     </div>
                 </div>
             </div>
+            {
+                props.hideSeparator ? "" : <div className="separator"></div>
+            }
         </div>
     );
 }

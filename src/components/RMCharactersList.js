@@ -27,8 +27,10 @@ function RMCharactersList () {
         <div className="RMCharactersList">
             <div>
             {
-                chatacters.map((character) => {
-                    return (<RMCharacterCard key={character.id} character={character}></RMCharacterCard>);
+                chatacters.map((character, index, chatacters) => {
+                    return index === chatacters.length - 1 ?
+                        (<RMCharacterCard key={character.id} character={character} hideSeparator="true"></RMCharacterCard>) :
+                        (<RMCharacterCard key={character.id} character={character}></RMCharacterCard>) ;
                 })
             }
             </div>
