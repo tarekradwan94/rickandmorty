@@ -3,6 +3,7 @@ import './RMCharactersList.css';
 import utils from "../utils";
 import RMCharacterCard from "./RMCharacterCard";
 import { toast } from 'react-toastify';
+import loaderGif from '../img/loader.gif';
 
 function RMCharactersList () {
 
@@ -25,6 +26,10 @@ function RMCharactersList () {
 
     return (
         <div className="RMCharactersList">
+            {
+                chatacters.length > 0 ? '' :
+                    <img className="RMLoader" src={loaderGif} alt="Loading..." />
+            }
             <div>
             {
                 chatacters.map((character, index, chatacters) => {

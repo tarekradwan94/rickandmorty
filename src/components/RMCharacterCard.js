@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './RMCharacterCard.css';
 import utils from '../utils';
 import { toast } from 'react-toastify';
+import loaderGif from '../img/loader.gif';
 
 function RMCharacterCard(props) {
     
@@ -84,6 +85,10 @@ function RMCharacterCard(props) {
             {
                 !areDetailsShown ? "" : 
                 <div className="RMDetails">
+                    {
+                        Object.keys(details).length > 0 ? '' :
+                            <img className="RMLoader" src={loaderGif} alt="Loading..." />
+                    }
                     {
                         !details.originDetails ? "" :
                         <div className="row">
