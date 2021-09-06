@@ -4,7 +4,8 @@ let utils = {
     getPagedRMCharacters : async (page = 1) => {
         let charactersOutput = {
             error: null,
-            data: null
+            data: null,
+            metadata: null
         };
 
         try {
@@ -20,6 +21,7 @@ let utils = {
                 if (contentType.includes("json")) {
                     let JSONResponse = await rawResponse.json();
                     charactersOutput.data = JSONResponse.results;
+                    charactersOutput.metadata = JSONResponse.info;
                 } else {
                     // handle content-type error
                     charactersOutput.error = Object.assign({}, constants.errors.formatError);

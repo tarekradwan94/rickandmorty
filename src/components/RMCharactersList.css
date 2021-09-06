@@ -10,3 +10,15 @@
     width: 200px;
     object-fit: contain;
 }
+
+.RMCharactersListPager {
+    position: relative;
+    width: 200px;
+    left: calc(100% - 220px); /* 250px is width + 20px of margin */
+    margin: 15px 0;
+}
+
+.RMCharactersListPager input {
+    width: 50px;
+    text-align: center;
+}
