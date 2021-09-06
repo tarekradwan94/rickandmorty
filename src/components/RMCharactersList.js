@@ -7,7 +7,7 @@ import loaderGif from '../img/loader.gif';
 
 function RMCharactersList () {
 
-    let [chatacters, setCharacters] = useState([]);
+    let [characters, setCharacters] = useState([]);
 
     useEffect( () => {
         // load characters
@@ -27,13 +27,13 @@ function RMCharactersList () {
     return (
         <div className="RMCharactersList">
             {
-                chatacters.length > 0 ? '' :
+                characters.length > 0 ? '' :
                     <img className="RMLoader" src={loaderGif} alt="Loading..." />
             }
             <div>
             {
-                chatacters.map((character, index, chatacters) => {
-                    return index === chatacters.length - 1 ?
+                characters.map((character, index, characters) => {
+                    return index === characters.length - 1 ?
                         (<RMCharacterCard key={character.id} character={character} hideSeparator={true}></RMCharacterCard>) :
                         (<RMCharacterCard key={character.id} character={character}></RMCharacterCard>) ;
                 })
