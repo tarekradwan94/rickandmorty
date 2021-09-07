@@ -67,7 +67,7 @@ function RMCharactersList () {
             <div className="RMCharactersListPager">
                     <button disabled={parseInt(page) <= 1} onClick={onFirstPageClicked}>&lt;&lt;</button>&nbsp;
                     <button disabled={parseInt(page) <= 1} onClick={onPreviousPageClicked}>&lt;</button>&nbsp;
-                    <input type="number" min="1" max={maxPages} value={page} onChange={onPageManualChange}></input>&nbsp;
+                    <input aria-label="Page" type="number" min="1" max={maxPages} value={page} onChange={onPageManualChange}></input>&nbsp;
                     <button disabled={parseInt(page) >= maxPages} onClick={onNextPageClicked}>&gt;</button>&nbsp;
                     <button disabled={parseInt(page) >= maxPages} onClick={onLastPageClicked}>&gt;&gt;</button>
             </div>
