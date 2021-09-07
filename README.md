@@ -3,6 +3,14 @@
 This project is developed in React and it is intended to be a personal development.
 It makes use of the rickandmorty API (https://rickandmortyapi.com/) to fetch the characters data.
 
+## Before you run it
+
+Before you can run, test or build this project you need to install all its dependencies:
+
+### `npm install`
+
+Run this command in the project root directory in order to let your system download and set up all the dependencies.
+
 ## Available Scripts
 
 In order to use this project, you can run:
