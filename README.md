@@ -7,7 +7,7 @@ It makes use of the rickandmorty API (https://rickandmortyapi.com/) to fetch the
 
 Before you can run, test or build this project you need to install all its dependencies:
 
-### `npm install`
+### `yarn install`
 
 Run this command in the project root directory in order to let your system download and set up all the dependencies.
 
