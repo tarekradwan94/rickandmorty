@@ -51,11 +51,12 @@ function RMCharacterCard(props) {
             <div className="row">
                 <div className="col-sm-2 RMAvatarBox">
                     <img src={props.character.image} className="RMAvatar" alt={`Avatar of ${props.character.name}`} />
-                    <br/>
+                    <span>
                     {
                         areDetailsShown ? "Hit to close" :
                         "Hit me"
                     }
+                    </span>
                 </div>
                 <div className="col-sm-3 RMInfoBox">
                     <h2>{props.character.name}</h2>
