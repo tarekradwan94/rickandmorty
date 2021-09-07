@@ -21,4 +21,19 @@
 .RMCharactersListPager input {
     width: 50px;
     text-align: center;
+
+    border-radius: 5px;
+}
+
+.RMCharactersListPager button {
+    border-radius: 5px;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: var(--general-color);
+    font-weight: bold;
+}
+
+.RMCharactersListPager button:disabled {
+    opacity: 0.5;
 }
